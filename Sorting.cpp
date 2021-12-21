@@ -19,5 +19,31 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello World!\n";
+    float numbers[15];
+    float fSupportVar;
+
+    cout << "input 15 numbers" << endl;
+    for (int n = 0; n < 15; n++) {
+        float fVar;
+        cin >> fVar;
+        numbers[n] = fVar;
+        for (int i = 0; i < n; i++) {
+            if (numbers[n] < numbers[i]) {             //compare current with previos
+                fSupportVar = numbers[i];
+                numbers[i] = numbers[n];
+                if (n > 1) {                           //move the row
+                    for (int q = n; q > i; q--) {
+                        numbers[q] = numbers[q - 1];
+                    }
+                }
+                numbers[i+1] = fSupportVar;
+            }
+        }
+    }
+    for (int i = 0; i < 15; i++) {
+        cout << numbers[i] << " "; //output all arrow
+    }
 }
+
+
+// 4    5   3
